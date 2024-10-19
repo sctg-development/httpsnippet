@@ -24,7 +24,7 @@ const DEBUG_MODE = false;
 
 const debug = {
   // eslint-disable-next-line @typescript-eslint/no-empty-function -- intentional noop
-  info: DEBUG_MODE ? console.info : () => {},
+  info: DEBUG_MODE ? console.info : () => { },
 };
 
 /** is this wrong?  yes.  according to the spec (http://www.softwareishard.com/blog/har-12-spec/#postData) it's technically wrong since `params` and `text` are (by the spec) mutually exclusive.  However, in practice, this is not what is often the case.
@@ -112,6 +112,13 @@ export class HTTPSnippet {
           mimeType: request.postData?.mimeType || 'application/octet-stream',
         },
       };
+
+      if (req.url) {
+        // normalize the URL if it contains { or }
+        if (req.url.includes('{') || req.url.includes('}')) {
+          req.url = new URL(req.url).toString();
+        }
+      }
 
       if (validateRequest(req)) {
         this.requests.push(this.prepare(req));

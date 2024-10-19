@@ -43,13 +43,28 @@ describe('hTTPSnippet', () => {
               url: 'http://mockbin.com/har',
             },
           },
+          {
+            request: {
+              "bodySize": 0,
+              "headersSize": 0,
+              "headers": [],
+              "cookies": [],
+              "httpVersion": "HTTP/1.1",
+              "queryString": [],
+              "method": "OPTIONS",
+              "url": "http://127.0.0.1:21114/{_path}",
+              "postData": {
+                "mimeType": "application/octet-stream"
+              }
+            },
+          }
         ],
       },
     });
 
     expect(snippet).toHaveProperty('requests');
     expect(Array.isArray(snippet.requests)).toBeTruthy();
-    expect(snippet.requests).toHaveLength(2);
+    expect(snippet.requests).toHaveLength(3);
   });
 
   describe('mimetype conversion', () => {
