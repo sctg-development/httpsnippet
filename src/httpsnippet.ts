@@ -113,7 +113,7 @@ export class HTTPSnippet {
         },
       };
 
-      if (req.url) {
+      if (typeof(req.url) !== 'undefined' && req.url !== null && req.url !== '') {
         // normalize the URL if it contains { or }
         if (req.url.includes('{') || req.url.includes('}')) {
           req.url = new URL(req.url).toString();

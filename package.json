@@ -1,5 +1,5 @@
 {
-  "version": "3.0.9a",
+  "version": "3.0.10",
   "name": "@sctg/httpsnippet",
   "description": "HTTP Request snippet generator for *most* languages",
   "author": "Kong <office@konghq.com>",
