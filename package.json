@@ -1,6 +1,6 @@
 {
   "version": "3.0.9",
-  "name": "httpsnippet",
+  "name": "@sctg/httpsnippet",
   "description": "HTTP Request snippet generator for *most* languages",
   "author": "Kong <office@konghq.com>",
   "homepage": "https://github.com/Kong/httpsnippet",
@@ -92,5 +92,9 @@
     "har-validator-compiled": "^1.0.0",
     "stringify-object": "3.3.0",
     "yargs": "^17.4.0"
+  },
+  "publishConfig": {
+    "tag": "latest",
+    "access": "public"
   }
 }
