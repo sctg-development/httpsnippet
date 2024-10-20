@@ -115,7 +115,9 @@ export class HTTPSnippet {
 
       if (typeof(req.url) !== 'undefined' && req.url !== null && req.url !== '') {
         // normalize the URL if it contains { or }
+        // this is a workaround for the issue in rapidoc where the url contains { or }
         if (req.url.includes('{') || req.url.includes('}')) {
+          req.url = req.url.replace(/{/g, '__').replace(/}/g, '__');
           req.url = new URL(req.url).toString();
         }
       }
